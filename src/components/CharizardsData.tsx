@@ -20,6 +20,15 @@ const ErrorMessage = styled.div`
     margin-top: 10px;
 `;
 
+const StyledInput = styled.input`
+    font-size: 2.5vw;
+    text-align: center;
+`;
+
+const StyledButton = styled.button`
+    font-size: 2vw;
+`;
+
 export default function CharizardsData(){
 
     const [data, setData] = useState<Charizard[]>([]);
@@ -55,13 +64,13 @@ export default function CharizardsData(){
     return(
         <ParentDiv>
             <InnerDiv>
-                <input
+                <StyledInput
                     type="text"
                     placeholder="Enter a Pokémon"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                 />
-                <button onClick={()=>setName(input)}>Search Pokémon</button>
+                <StyledButton onClick={()=>setName(input)}>Search Pokémon</StyledButton>
             </InnerDiv>
             {loading ? (
                 <div>Loading...</div>
