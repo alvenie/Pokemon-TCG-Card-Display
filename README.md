@@ -1,50 +1,21 @@
-# React + TypeScript + Vite
+# Pokémon Charizard Collection
+# Overview
+This project is a web application that displays a collection of Charizard cards from the Pokémon Trading Card Game (TCG). Users can view the name of the card as well as what set it's from. The application fetches data from the Pokémon TCG API and presents it in an engaging and user-friendly format.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
+- Fetches and displays a list of Charizard cards from the Pokémon TCG API.
 
-Currently, two official plugins are available:
+- Displays card details, including name, set information, and images.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design for optimal viewing on various devices.
 
-## Expanding the ESLint configuration
+- Loading state to inform users while data is being fetched.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Technologies Used
+- React: A JavaScript library for building user interfaces.
 
-- Configure the top-level `parserOptions` property like this:
+- TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Styled Components: A library for styling React components using tagged template literals.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Pokémon TCG API: An API that provides access to data about Pokémon cards.
