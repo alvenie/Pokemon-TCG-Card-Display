@@ -8,28 +8,68 @@ const ParentDiv=styled.div`
     margin: auto;
 `;
 
+const InnerDiv=styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`;
+
+const ErrorMessage = styled.div`
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+`;
+
 export default function CharizardsData(){
 
     const [data, setData] = useState<Charizard[]>([]);
     const [loading, setLoading] = useState(true);
+    const [name, setName] = useState("Charizard");
+    const [input, setInput] = useState(name);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(()=> {
         async function fetchData(){
-            const rawData = await fetch("https://api.pokemontcg.io/v2/cards?q=name:charizard%20supertype:Pok%C3%A9mon");
+            setLoading(true);
+
+            const rawData = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${name}%20supertype:Pok%C3%A9mon`);
             const results = await rawData.json();
-            setData(results.data);
+
+            if (results.data.length === 0) {
+                setError(`No Pokémon of the name ${name} is found`);
+                setData([]);
+            } else {
+                setError(null);
+                setData(results.data);
+            }
+
             setLoading(false);
         }
         fetchData()
             .then(() => console.log("Data fetched successfully"))
             .catch((e: Error) => console.error("There was an error: " + e));
-    }, []);
+    }, [name]);
 
     if (loading) return <div>Loading...</div>;
 
     return(
         <ParentDiv>
-            <CharizardsBuild data={data}/>
+            <InnerDiv>
+                <input
+                    type="text"
+                    placeholder="Enter a Pokémon"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                />
+                <button onClick={()=>setName(input)}>Search Pokémon</button>
+            </InnerDiv>
+            {loading ? (
+                <div>Loading...</div>
+            ) : error ? (
+                <ErrorMessage>{error}</ErrorMessage>
+            ) : (
+                <CharizardsBuild data={data}/>
+            )}
         </ParentDiv>
     );
 }
