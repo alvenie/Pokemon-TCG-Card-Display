@@ -1,9 +1,9 @@
-# Pokémon Charizard Collection
+# Pokémon TCG Collection
 # Overview
-This project is a web application that displays a collection of Charizard cards from the Pokémon Trading Card Game (TCG). Users can view the name of the card as well as what set it's from. The application fetches data from the Pokémon TCG API and presents it in an engaging and user-friendly format.
+This project is a web application that displays a collection of the specific user-inputted Pokémon cards from the Pokémon Trading Card Game (TCG). Users can view the name of the card as well as what set it's from. The application fetches data from the Pokémon TCG API and presents it in an engaging and user-friendly format.
 
 # Features
-- Fetches and displays a list of Charizard cards from the Pokémon TCG API.
+- Fetches and displays a list of the specific user-inputted Pokémon cards cards from the Pokémon TCG API.
 
 - Displays card details, including name, set information, and images.
 
